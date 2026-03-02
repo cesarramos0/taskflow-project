@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #2c3e50;
+    --color-acento: #e67e22;
+    --color-fondo: #f4f7f6;
+    --color-texto: #333333;
+
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-titulos: 'Georgia', serif;
+
+    --espaciado-pequeno: 8px;
+    --espaciado-medio: 16px;
+    --espaciado-grande: 32px;
+    --redondeo-general: 8px;
+}
+
+body {
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+    color: var(--color-texto);
+}
+
+/* Tipografía Base */
+h2 {
+    margin-top: 60px;
+    color: var(--color-primario);
+    font-family: var(--fuente-titulos);
+    margin-bottom: var(--espaciado-medio);
+}
+
+h4 {
+    color: white;
+}
+
+header {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 0 5%;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+nav {
+    padding-right: 60px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 120px auto 0 auto;
+    padding: 0 40px;
+}
+
+.contenido-principal {
+    display: flex;
+    gap: 40px;
+    margin-top: 100px;
+    align-items: flex-start;
+}
+
+.contenido {
+    flex: 3;
+}
+
+aside {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background-color: white;
+    padding: var(--espaciado-medio);
+    margin-left: 60px;
+    border-radius: var(--redondeo-general);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: fit-content;
+    position: sticky;
+    top: 150px;
+}
+
+aside h3 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+aside p {
+    margin-bottom: 18px;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+footer {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    background-color: var(--color-primario); 
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: white; 
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 750px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-section p, 
+.footer-section a {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease;
+}
+
+.footer-section a:hover {
+    opacity: 0.7;
+}
+
+.resena {
+    border-left: 5px solid var(--color-acento);
+    padding: 10px 0 10px 25px;
+    background-color: rgba(251, 218, 190, 0.83);
+}
+
+.foto-mesa {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: var(--redondeo-general);
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.logoRRSS {
+    max-width: 25px;
+}
+
+.ico-social {
+    display: flex;
+    gap: 10px;
+}
+
+.lista-tareas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaciado-pequeno);
+}
+
+.tarea-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: var(--espaciado-medio);
+    border-radius: var(--redondeo-general);
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.tarea-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--color-acento);
+}
+
+.badge {
+    background-color: var(--color-acento);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    main {
+        flex-direction: column; 
+        padding: 20px;
+    }
+
+    .contenido, 
+    aside {
+        width: 100%;
+        max-width: 100%;
+        flex: none; 
+    }
+
+    aside {
+        margin-left: 0;
+        margin-top: 40px;
+        position: static; 
+    }
+
+    .footer-content {
+        gap: 20px; 
+    }
+}
