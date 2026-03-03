@@ -25,7 +25,6 @@ body {
     color: var(--color-texto);
 }
 
-/* Tipografía Base */
 h2 {
     margin-top: 60px;
     color: var(--color-primario);
@@ -76,6 +75,10 @@ main {
     max-width: 1200px;
     margin: 120px auto 0 auto;
     padding: 0 40px;
+}
+
+p{
+    text-wrap:pretty;
 }
 
 .contenido-principal {
@@ -132,7 +135,7 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 750px;
+    gap:700px;
 }
 
 .footer-section h4 {
@@ -165,7 +168,7 @@ footer {
     max-width: 800px;
     height: auto;
     border-radius: var(--redondeo-general);
-    margin: 20px 0;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: block;
 }
@@ -203,6 +206,12 @@ footer {
     border-color: var(--color-acento);
 }
 
+.tarea-categoria{
+    flex-shrink: 0;
+    margin-left: 10px;
+    
+}
+
 .badge {
     background-color: var(--color-acento);
     color: white;
@@ -211,8 +220,12 @@ footer {
     font-size: 0.8rem;
     font-weight: bold;
 }
-
-@media (max-width: 900px) {
+@media (max-width: 1200px){
+    .footer-content{
+        gap:30px;
+    }
+}
+@media (max-width: 950px) {
     main {
         flex-direction: column; 
         padding: 20px;
@@ -230,8 +243,33 @@ footer {
         margin-top: 40px;
         position: static; 
     }
+    h2{
+        margin-top: 20px;
+    }
+     .contenido section:first-child h2{
+        margin-top: 0px;
+    }
 
     .footer-content {
         gap: 20px; 
+    }
+    .foto-mesa{
+        margin: 15px auto;
+    }
+
+}
+@media (max-width: 492px) {
+    header{
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+    }
+
+    header nav{
+        padding-right: 0; 
+    }
+
+    .tarea-categoria{
+        display: none;
     }
 }
