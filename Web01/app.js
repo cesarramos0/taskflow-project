@@ -3,7 +3,13 @@ const formulario = document.getElementById("formulario-tareas");
 const input = document.getElementById("input-tarea");
 const contenedorLista = document.querySelector(".lista-propuestas");
 const inputBusqueda = document.getElementById("input-busqueda");
+const btnOscuro = document.getElementById('btn-oscuro');
+const htmlElement = document.documentElement;
 
+if (localStorage.getItem('theme') === 'dark') {
+    htmlElement.classList.add('dark');
+    btnOscuro.textContent = '☀️';
+}
 
 input.addEventListener("input", function() {
     this.style.height = "auto";
@@ -56,14 +62,31 @@ inputBusqueda.addEventListener("input", function() {
     });
 });
 
+btnOscuro.addEventListener('click', () => {
+
+    htmlElement.classList.toggle('dark');
+    
+    if (htmlElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        btnOscuro.textContent = '☀️';
+    } else {
+        localStorage.setItem('theme', 'light');
+        btnOscuro.textContent = '🌙';
+    }
+});
+
 //FUNCIONES AUXILIARES
+
 function crearElemento(texto) {
     const nuevaTarea = document.createElement("div");
-    nuevaTarea.classList.add("tarea-item");
+    
+    nuevaTarea.className = "flex justify-between items-center bg-white dark:bg-slate-800 p-4 mb-3 rounded-lg shadow-sm w-full transition-colors";
 
     nuevaTarea.innerHTML = `
-        <span>${texto}</span>
-        <button class="btn-borrar"><img src="cerrar.png" alt="eliminar-propuesta"></button>
+        <span class="text-gray-800 dark:text-gray-200 flex-1 pr-4 break-words">${texto}</span>
+        <button class="btn-borrar p-2 hover:scale-110 transition-transform cursor-pointer">
+            <img src="cerrar.png" alt="eliminar-propuesta" class="w-4 h-4 dark:invert">
+        </button>
     `;
 
     const botonEliminar = nuevaTarea.querySelector(".btn-borrar");
